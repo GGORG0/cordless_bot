@@ -1,10 +1,27 @@
 const fs = require('node:fs');
 const { Client, Collection, Intents } = require('discord.js');
+const Keyv = require('keyv');
 
 const dotenv = require('dotenv');
 dotenv.config();
 
+console.log('Starting...');
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+
+if (process.env.DB_PATH === undefined) {
+	console.log('No DB_PATH specified in .env file. Using default path.');
+	process.env.DB_PATH = 'data/db.sqlite';
+}
+const db = new Keyv(`sqlite://${process.env.DB_PATH}`);
+db.on('error', err => console.error('Keyv connection error:', err));
+client.db = db;
+
+db.get('blocked').then(async blocked => {
+	if (!blocked) {
+		await db.set('blocked', []);
+	}
+});
 
 client.commands = new Collection();
 
