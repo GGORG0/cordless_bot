@@ -6,7 +6,7 @@ module.exports = {
 	async execute(client) {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 		const updateStatus = async () => {
-			client.user.setActivity(`${client.guilds.cache.size} servers | up for ${ms(client.uptime)}`, { type: 'WATCHING' });
+			client.user.setActivity(`Alpha version | ${client.guilds.cache.size} servers | up for ${ms(client.uptime)}`, { type: 'WATCHING' });
 		};
 
 		updateStatus();
