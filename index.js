@@ -7,15 +7,18 @@ dotenv.config();
 
 console.log('Starting...');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 if (process.env.DB_PATH === undefined) {
 	console.log('No DB_PATH specified in .env file. Using default path.');
 	process.env.DB_PATH = 'data/db.sqlite';
 }
 const db = new Keyv(`sqlite://${process.env.DB_PATH}`);
+const notedb = new Keyv(`sqlite://${process.env.DB_PATH}`, { namespace: 'notes' });
 db.on('error', err => console.error('Keyv connection error:', err));
+notedb.on('error', err => console.error('Keyv connection error:', err));
 client.db = db;
+client.notedb = notedb;
 
 db.get('blocked').then(async blocked => {
 	if (!blocked) {

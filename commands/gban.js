@@ -58,7 +58,7 @@ module.exports = {
 				return;
 			}
 
-			interaction.reply(commaLists`Users globally banned: ${blocked.join(', ')}`);
+			interaction.reply(commaLists`Users globally banned: ${blocked}`);
 		}
 	},
 };
