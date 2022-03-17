@@ -50,7 +50,7 @@ module.exports = {
 		if (interaction.options.getSubcommand() === 'create') {
 
 			if (!interaction.memberPermissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
-				interaction.reply('You do not have permission to use this command.', { ephermal: true });
+				interaction.reply('You do not have permission to use this command.', { ephemeral: true });
 				return;
 			}
 
@@ -72,7 +72,7 @@ module.exports = {
 		}
 		else if (interaction.options.getSubcommand() === 'remove') {
 			if (!interaction.memberPermissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
-				interaction.reply('You do not have permission to use this command.', { ephermal: true });
+				interaction.reply('You do not have permission to use this command.', { ephemeral: true });
 				return;
 			}
 

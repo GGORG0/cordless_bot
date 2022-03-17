@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Permissions } = require('discord.js');
+const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -13,15 +14,15 @@ module.exports = {
 		),
 	async execute(interaction) {
 		if (!interaction.memberPermissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) {
-			interaction.reply('You do not have permission to use this command.', { ephermal: true });
+			interaction.reply('You do not have permission to use this command.', { ephemeral: true });
 			return;
 		}
 		if (interaction.options.getInteger('amount') > 100) {
-			interaction.reply('You can only delete up to 100 messages at a time.', { ephermal: true });
+			interaction.reply('You can only delete up to 100 messages at a time.', { ephemeral: true });
 			return;
 		}
-		await interaction.deferReply();
+		await interaction.deferReply({ ephemeral: true });
 		await interaction.channel.bulkDelete(interaction.options.getInteger('amount'));
-		await interaction.reply('Messages deleted.');
+		await interaction.editReply('Messages deleted.');
 	},
 };

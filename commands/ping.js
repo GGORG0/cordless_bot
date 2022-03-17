@@ -11,7 +11,7 @@ module.exports = {
 			.setColor('#2ad4ff')
 			.setTitle('Bot latency')
 			.addFields(
-				{ name: 'Roundtrip latency', value: `${sent.createdTimestamp - interaction.createdTimestamp}ms`, inline: false },
+				{ name: 'Roundtrip latency', value: `${(sent.createdTimestamp - interaction.createdTimestamp) / 2}ms (full journey took ${sent.createdTimestamp - interaction.createdTimestamp}ms)`, inline: false },
 				{ name: 'WebSocket latency', value: `${interaction.client.ws.ping}ms`, inline: false },
 			);
 
