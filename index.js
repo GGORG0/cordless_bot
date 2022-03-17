@@ -7,6 +7,10 @@ dotenv.config();
 
 console.log('Starting...');
 
+if (process.env.IN_PM2) {
+	console.log('Running in PM2.');
+}
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 if (process.env.DB_PATH === undefined) {
