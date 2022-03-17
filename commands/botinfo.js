@@ -19,8 +19,6 @@ module.exports = {
 				{ name: 'Author', value: `<@${interaction.client.application?.owner?.id}>`, inline: true },
 				{ name: 'User ID', value: `${interaction.client.user.id}`, inline: true },
 				{ name: 'Node.js version', value: `${process.version}`, inline: true },
-				{ name: 'RAM Usage', value: `${os.freemem()} free out of ${os.totalmem()}`, inline: true },
-				{ name: 'CPU Usage', value: `${os.cpus()}`, inline: true },
 				{ name: 'Source code', value: '[Click me!](https://gh.ggorg.tk/cordless_bot)', inline: true },
 				{ name: 'Support server', value: '[Click me!](https://discord.gg/dRNxjZphvu)', inline: true },
 				{ name: 'Add me', value: '[Click me!](https://discord.com/api/oauth2/authorize?client_id=949390883038572605&permissions=540404806&scope=applications.commands%20bot)', inline: true },
