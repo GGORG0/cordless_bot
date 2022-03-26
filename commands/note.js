@@ -82,7 +82,8 @@ module.exports = {
         .catch(async () => {
           await interaction.followUp("You took too long to reply. Cancelling.");
         });
-    } else if (interaction.options.getSubcommand() === "remove") {
+    }
+ else if (interaction.options.getSubcommand() === "remove") {
       if (!interaction.memberPermissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
         interaction.reply("You do not have permission to use this command.", {
           ephemeral: true,
@@ -107,14 +108,16 @@ module.exports = {
         gnotes.filter((n) => n !== interaction.options.getString("name"))
       );
       await interaction.reply("Note deleted successfully.");
-    } else if (interaction.options.getSubcommand() === "list") {
+    }
+ else if (interaction.options.getSubcommand() === "list") {
       if (notes.length === 0) {
         interaction.reply("There are no notes.");
         return;
       }
 
       await interaction.reply(commaLists`Notes: ${gnotes}`);
-    } else if (interaction.options.getSubcommand() === "view") {
+    }
+ else if (interaction.options.getSubcommand() === "view") {
       if (
         notes.get(
           `${interaction.guild.id}.${interaction.options.getString("name")}`
