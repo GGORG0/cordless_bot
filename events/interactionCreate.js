@@ -2,11 +2,12 @@ module.exports = {
   name: "interactionCreate",
   async execute(interaction) {
     const blocked = await interaction.client.db.get("blocked");
-    if (blocked.includes(interaction.user.id))
-      return interaction.reply({
+    if (blocked.includes(interaction.user.id)) {
+return interaction.reply({
         content: "You are not allowed to use this bot.",
         ephemeral: true,
       });
+}
 
     if (interaction.isCommand()) {
       const command = interaction.client.commands.get(interaction.commandName);
@@ -15,14 +16,16 @@ module.exports = {
 
       try {
         command.execute(interaction);
-      } catch (error) {
+      }
+ catch (error) {
         console.error(error);
         interaction.reply({
           content: "There was an error while executing this command!",
           ephemeral: true,
         });
       }
-    } else if (interaction.isSelectMenu()) {
+    }
+ else if (interaction.isSelectMenu()) {
       if (interaction.customId.startsWith("roleselect")) {
         const regexp = /^\d+$/;
         await interaction.deferReply({ ephemeral: true });
@@ -31,7 +34,8 @@ module.exports = {
           let role;
           if (regexp.test(c.value)) {
             role = interaction.guild.roles.cache.find((r) => r.id === c.value);
-          } else {
+          }
+ else {
             const crole = c.value.replace("_", " ");
             role = interaction.guild.roles.cache.find(
               (r) => r.name.toLowerCase() === crole
@@ -45,7 +49,8 @@ module.exports = {
             role = interaction.guild.roles.cache.find(
               (r) => r.id === interaction.values[0]
             );
-          } else {
+          }
+ else {
             const crole = interaction.values[0].replace("_", " ");
             role = interaction.guild.roles.cache.find(
               (r) => r.name.toLowerCase() === crole
@@ -62,7 +67,8 @@ module.exports = {
                 ephemeral: true,
               })
             );
-        } else {
+        }
+ else {
           await interaction.editReply({
             content: "You have been removed from all selectable roles!",
             ephemeral: true,

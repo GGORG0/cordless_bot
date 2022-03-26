@@ -25,7 +25,8 @@ module.exports = {
         time: 120e3,
         errors: ["time"],
       });
-    } catch {
+    }
+ catch {
       await interaction.followUp("You took too long to reply. Cancelling.");
       return;
     }
@@ -33,7 +34,8 @@ module.exports = {
     let evaled;
     try {
       evaled = eval(code);
-    } catch (err) {
+    }
+ catch (err) {
       await interaction.followUp(stripIndent`There was an error while evaluating the code.
 			\`\`\`js
 			${err}
@@ -44,7 +46,8 @@ module.exports = {
       await interaction.followUp(
         `\`\`\`json\n${JSON.stringify(evaled, null, 2)}\n\`\`\``
       );
-    } else {
+    }
+ else {
       await interaction.followUp(`\`\`\`\n${evaled}\n\`\`\``);
     }
   },

@@ -48,7 +48,8 @@ module.exports = {
         blocked.concat([interaction.options.getUser("user").id])
       );
       interaction.reply("User has been globally banned.");
-    } else if (interaction.options.getSubcommand() === "remove") {
+    }
+ else if (interaction.options.getSubcommand() === "remove") {
       if (!blocked.includes(interaction.options.getUser("user").id)) {
         interaction.reply("User is not globally banned.");
         return;
@@ -61,7 +62,8 @@ module.exports = {
         )
       );
       interaction.reply("User has been globally unbanned.");
-    } else if (interaction.options.getSubcommand() === "list") {
+    }
+ else if (interaction.options.getSubcommand() === "list") {
       if (blocked.length === 0) {
         interaction.reply("There are no globally banned users.");
         return;
