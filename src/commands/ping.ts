@@ -1,12 +1,14 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+import { BotEnvironment, Command } from "../types";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { CommandInteraction, Message, MessageEmbed } from "discord.js";
 
-module.exports = {
-	data: new SlashCommandBuilder()
+export default new Command(
+	new SlashCommandBuilder()
 		.setName('ping')
 		.setDescription('Check the bot\'s latency'),
-	async execute(interaction) {
-		const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	async (interaction: CommandInteraction, env: BotEnvironment) => {
+		const sent: Message = await interaction.reply({ content: 'Pinging...', fetchReply: true }) as Message;
 		const embed = new MessageEmbed()
 			.setColor('#2ad4ff')
 			.setTitle('Bot latency')
@@ -16,5 +18,5 @@ module.exports = {
 			);
 
 		await interaction.editReply({ content: 'Pong!', embeds: [embed] });
-	},
-};
+	}
+);

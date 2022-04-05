@@ -132,3 +132,5 @@ dist
 # Custom
 /.env
 /data
+.env*
+!.env.project

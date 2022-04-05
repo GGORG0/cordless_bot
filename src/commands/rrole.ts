@@ -1,8 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
+import { BotEnvironment, Command } from "../types";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { MessageEmbed, MessageActionRow, MessageSelectMenu } from "discord.js";
+import { CommandInteraction } from "discord.js";
 
-module.exports = {
-	data: new SlashCommandBuilder()
+export default new Command(
+	new SlashCommandBuilder()
 		.setName('rrole')
 		.setDescription('Create a reaction-role style message in the current channel (max 10 roles)')
 		.addStringOption(option =>
@@ -71,11 +73,12 @@ module.exports = {
 				.setDescription('Role #10')
 				.setRequired(false),
 		),
-	async execute(interaction) {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	async (interaction: CommandInteraction, env: BotEnvironment) => {
 		const roles = [];
 		roles.push({ label: 'No color', value: '_clear', description: 'Clear your color' });
 		for (let i = 1; i <= 10; i++) {
-			const role = interaction.options.getRole(`role${i}`);
+			const role = interaction.options.getRole(`role${i}`, true);
 			if (role) {
 				roles.push({ label: role.name, value: role.id });
 			}
@@ -90,13 +93,13 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setColor('#2ad4ff')
-			.setTitle(interaction.options.getString('title'));
+			.setTitle(interaction.options.getString('title', true));
 
-		if (interaction.options.getString('description')) {
-			embed.setDescription(interaction.options.getString('description'));
+		if (interaction.options.getString('description', true)) {
+			embed.setDescription(interaction.options.getString('description', true));
 		}
 
 		await interaction.reply({ content: 'Done!', ephemeral: true });
-		await interaction.channel.send({ embeds: [embed], components: [row] });
-	},
-};
+		await interaction.channel?.send({ embeds: [embed], components: [row] });
+	}
+);
