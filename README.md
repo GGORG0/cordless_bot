@@ -20,4 +20,4 @@
 [![Discord](https://img.shields.io/discord/949409250285846528?label=Support%20server&style=for-the-badge&logo=discord)](https://l.ggorg.tk/cordless-server)
 [![Invite](https://img.shields.io/static/v1?label=Invite&message=to%20your%20server&color=brightgreen&style=for-the-badge&logo=discord)](https://l.ggorg.tk/cordless)
 
-A Discord multi-function bot written in TypeScript.
+A multi-function Discord bot written in TypeScript.
