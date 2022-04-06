@@ -18,6 +18,6 @@
 ![GitHub Workflow (Build) Status (branch)](https://img.shields.io/github/workflow/status/GGORG0/cordless_bot/Build/master?label=Build&style=for-the-badge)
 
 [![Discord](https://img.shields.io/discord/949409250285846528?label=Support%20server&style=for-the-badge&logo=discord)](https://l.ggorg.tk/cordless-server)
-[![Invite](https://img.shields.io/static/v1?label=Invite&message=to%20your%20server&color=brightgreen&style=for-the-badge&logo=discord)](https://l.ggorg.tk/cordless-server)
+[![Invite](https://img.shields.io/static/v1?label=Invite&message=to%20your%20server&color=brightgreen&style=for-the-badge&logo=discord)](https://l.ggorg.tk/cordless)
 
 A Discord multi-function bot written in TypeScript.
