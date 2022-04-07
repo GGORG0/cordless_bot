@@ -29,7 +29,7 @@ import "dotenv/config";
 	}
 	
 	if (process.env.BOT_ADMIN_ROLE === undefined) {
-		console.error('No MAIN_GUILD_ID specified in .env file. Exiting.');
+		console.error('No BOT_ADMIN_ROLE specified in .env file. Exiting.');
 		process.exit(1);
 	}
 	
