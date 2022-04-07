@@ -33,7 +33,7 @@ import "dotenv/config";
 	const commandFiles = readdirSync('./commands').filter(file => file.endsWith('.js') || file.endsWith('.ts'));
 	
 	for (const file of commandFiles) {
-		const command: Command = require(`./commands/${file}`); // eslint-disable-line
+		const command: Command = require(`./commands/${file}`).default; // eslint-disable-line
 		if(command.data.toJSON )
 		commands.push(command.data.toJSON());
 		console.log(`Added command: ${file}`);
