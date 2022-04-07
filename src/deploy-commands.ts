@@ -5,6 +5,7 @@ import { Command } from "./types";
 import "dotenv/config";
 
 (async () => {
+	process.chdir(__dirname);
 
 	if (process.env.DISCORD_TOKEN === undefined) {
 		console.error('No DISCORD_TOKEN specified in .env file. Exiting.');
