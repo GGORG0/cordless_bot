@@ -11,7 +11,7 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/GGORG0/cordless_bot?style=for-the-badge)](https://github.com/GGORG0/cordless_bot/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/GGORG0/cordless_bot?style=for-the-badge)](https://github.com/GGORG0/cordless_bot/pulls)
-![GitHub repo stars](https://img.shields.io/github/stars/GGORG0/cordless_bot?style=for-the-badge)
+[![GitHub repo stars](https://img.shields.io/github/stars/GGORG0/cordless_bot?style=for-the-badge)](https://github.com/GGORG0/cordless_bot/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/GGORG0/cordless_bot?style=for-the-badge)](https://github.com/GGORG0/cordless_bot/network/members)
 
 [![GitHub Workflow (Lint) Status (branch)](https://img.shields.io/github/workflow/status/GGORG0/cordless_bot/Lint/master?label=Lint&style=for-the-badge)](https://github.com/GGORG0/cordless_bot/actions/workflows/lint.yml)
