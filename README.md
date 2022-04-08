@@ -21,3 +21,10 @@
 [![Invite](https://img.shields.io/static/v1?label=Invite&message=to%20your%20server&color=brightgreen&style=for-the-badge&logo=discord)](https://l.ggorg.tk/cordless)
 
 A multi-function Discord bot written in TypeScript.
+
+## Running
+
+1. Clone the repo
+2. Install the dependencies with `yarn install`
+3. Build the project with `yarn build`
+4. Run in PM2 with `pm2 start --name cordless_bot ecosystem.config.js`
