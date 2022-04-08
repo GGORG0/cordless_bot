@@ -2,10 +2,6 @@ import { Command } from "../types";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageEmbed, CommandInteraction } from "discord.js";
 import { BotEnvironment } from "../types";
-import ms from "ms";
-import dayjs from "dayjs";
-import duration from "dayjs/plugin/duration";
-dayjs.extend(duration);
 
 export default new Command(
 	new SlashCommandBuilder()
@@ -22,7 +18,7 @@ export default new Command(
 				{ name: 'Channel count', value: `${interaction.guild?.channels.cache.size as number}`, inline: true },
 				{ name: 'Role count', value: `${interaction.guild?.roles.cache.size as number}`, inline: true },
 				{ name: 'Boost count', value: `${interaction.guild?.premiumSubscriptionCount as number}`, inline: true },
-				{ name: 'Created at', value: `${dayjs(interaction.guild?.createdTimestamp).format()} (${ms(Date.now() - (interaction.guild?.createdTimestamp as number))} ago)`, inline: true },
+				{ name: 'Created at', value: `<t:${Math.round(interaction.guild?.createdTimestamp as number / 1000)}> (<t:${Math.round(interaction.guild?.createdTimestamp as number / 1000)}:R>)`, inline: true },
 				{ name: 'ID', value: `${interaction.guild?.id as string}`, inline: true },
 				{ name: 'Owner', value: `<@${interaction.guild?.ownerId as string}>`, inline: true },
 			)
