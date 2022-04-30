@@ -18,5 +18,5 @@ jobs:
           node-version: 16
       - name: Install dependendencies
         run: yarn install
-      - name: Lint
+      - name: Build
         run: yarn run build
