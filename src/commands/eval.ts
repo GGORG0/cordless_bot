@@ -10,7 +10,7 @@ export default new Command(
 	.setDefaultPermission(false),
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	async (interaction: CommandInteraction, env: BotEnvironment) => {
-		if (interaction.user.id !== interaction.client.application?.owner?.id) {
+		if (interaction.user.id !== (interaction.client.application?.owner?.id || (await interaction.client.application?.fetch())?.owner?.id)) {
 			await interaction.reply({ content: 'You do not have permission to use this command.', ephemeral: true });
 			return;
 		}
@@ -44,11 +44,6 @@ export default new Command(
 			\`\`\``);
 			return;
 		}
-		if (typeof evaled !== 'string') {
-			await interaction.followUp(`\`\`\`json\n${JSON.stringify(evaled, null, 2)}\n\`\`\``);
-		}
-		else {
-			await interaction.followUp(`\`\`\`\n${evaled}\n\`\`\``);
-		}
+		await interaction.followUp(`\`\`\`json\n${JSON.stringify(evaled, null, 2)}\n\`\`\``);
 	}
 )
